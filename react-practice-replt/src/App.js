@@ -5,7 +5,8 @@
 // import Dice from './Dice'
 // import AreaForm from './AreaForm'
 // import LoginForm from './LoginForm'
-import AirQuality from './AirQuality'
+// import AirQuality from './AirQuality'
+import RegisterForm from './RegisterForm'
 
 
 
@@ -17,7 +18,8 @@ function App() {
         {/* <Dice/> */}
         {/* <AreaForm/> */}
         {/* <LoginForm/> */}
-        <AirQuality/>
+        {/* <AirQuality/> */}
+        <RegisterForm/>
     </div>
   );
 }
