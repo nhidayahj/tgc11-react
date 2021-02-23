@@ -3,7 +3,11 @@
 // import ColoredBox from './ColoredBox'
 // import WaterDispense from './WaterDispense'
 // import Dice from './Dice'
-import AreaForm from './AreaForm'
+// import AreaForm from './AreaForm'
+// import LoginForm from './LoginForm'
+import AirQuality from './AirQuality'
+
+
 
 function App() {
   return (
@@ -11,7 +15,9 @@ function App() {
         {/* <ColoredBox/> */}
         {/* <WaterDispense/> */}
         {/* <Dice/> */}
-        <AreaForm/>
+        {/* <AreaForm/> */}
+        {/* <LoginForm/> */}
+        <AirQuality/>
     </div>
   );
 }
