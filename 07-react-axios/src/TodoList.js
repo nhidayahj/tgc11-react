@@ -8,7 +8,7 @@ export default class TodoList extends React.Component{
 
     renderList = () => {
         let todos = [];
-        for(let if of )
+        for(let if of todos)
     }
 
     render(){
