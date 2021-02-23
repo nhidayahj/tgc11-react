@@ -3,7 +3,12 @@ import axios from 'axios'
 
 export default class TodoList extends React.Component{
     state = {
+        tasks:[]
+    }
 
+    renderList = () => {
+        let todos = [];
+        for(let if of )
     }
 
     render(){
@@ -14,6 +19,7 @@ export default class TodoList extends React.Component{
     
     loadData = async() => {
         let response = axios.get('tasks.json')
+
     }
 
 
