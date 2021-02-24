@@ -12,6 +12,15 @@ function multiLine() {
     return ""
 }
 
+function saysGoodbye() {
+    return "Goodbye"
+}
+
+function displayHeader() {
+    return (
+        <h2>About Me</h2>
+    )
+}
 
 function App() {
     return (
@@ -24,7 +33,8 @@ function App() {
                 <li>Option 4</li>
             </ul>
             <label style={{
-                color:"magenta"}}>Your name: </label>
+                color: "magenta"
+            }}>Your name: </label>
             <input type="text" placeholder="first name"></input>
             <button type="submit" >Submit</button>
             {saysHello("heydi")}
@@ -32,7 +42,8 @@ function App() {
                 <img src={require('./logo.svg').default} height="500px" width="500px" />
                 <img src={cuteKitty} height="300px" width="300px" />
             </div>
-
+            <p>{saysGoodbye()}</p>
+            {displayHeader()}
         </React.Fragment>
     );
 }
