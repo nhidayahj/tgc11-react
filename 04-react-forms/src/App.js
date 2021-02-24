@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 // import CircleForm from './CircleForm'
 // import AddTwo from './AddTwo'
 // import CalcBMI from './CalcBMI'
-import CalcGST from './CalcGST'
+// import CalcGST from './CalcGST'
+import UserForm from './UserForm'
 
 
 function App() {
@@ -12,7 +13,8 @@ function App() {
       {/* <CircleForm/> */}
       {/* <AddTwo/> */}
       {/* <CalcBMI/> */}
-      <CalcGST/>
+      {/* <CalcGST/> */}
+      <UserForm/>
     </div>
   );
 }
