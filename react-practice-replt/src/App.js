@@ -1,11 +1,11 @@
-import UpdateMovie from './UpdateMovie'
-// import Library from './Library'
+// import UpdateMovie from './UpdateMovie'
+import Library from './Library'
 
 function App() {
   return (
     <div className="App">
-        <UpdateMovie/>
-        {/* <Library/> */}
+        {/* <UpdateMovie/> */}
+        <Library/>
     </div>
   );
 }
