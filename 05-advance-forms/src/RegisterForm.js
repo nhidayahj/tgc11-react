@@ -6,7 +6,7 @@ export default class RegisterForm extends React.Component {
         username: "",
         email: "",
         password: "",
-        error: ""
+        
     }
 
     checkValue = (e) => {
@@ -17,13 +17,21 @@ export default class RegisterForm extends React.Component {
 
     checkUsername() {
         if (this.state.username.length > 3 && this.state.username.length < 10) {
-
             return 'none'
         } else {
 
             return 'block'
         }
     }
+
+    checkEmail() {
+        if(this.state.email.includes('@')) {
+            return 'none'
+        } else {
+            return 'block'
+        }
+    }
+
 
     render() {
         return (
@@ -39,7 +47,7 @@ export default class RegisterForm extends React.Component {
                     <label>Email: </label>
                     <input type="text" name="email" value={this.state.email}
                         onChange={this.checkValue} />
-                    <span className="error"></span>
+                    <span className="error" style={{display: this.checkEmail(), color:"red"}}>Error</span>
                 </div>
                 <div>
                     <label>Password: </label>

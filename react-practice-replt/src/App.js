@@ -1,25 +1,13 @@
-// import './App.css';
-// import './dice.css'
-// import ColoredBox from './ColoredBox'
-// import WaterDispense from './WaterDispense'
-// import Dice from './Dice'
-// import AreaForm from './AreaForm'
-// import LoginForm from './LoginForm'
-// import AirQuality from './AirQuality'
-import RegisterForm from './RegisterForm'
-
-
+// import RegisterForm from './RegisterForm'
+// import Numbers from './Numbers'
+import Movies from './Movies'
 
 function App() {
   return (
     <div className="App">
-        {/* <ColoredBox/> */}
-        {/* <WaterDispense/> */}
-        {/* <Dice/> */}
-        {/* <AreaForm/> */}
-        {/* <LoginForm/> */}
-        {/* <AirQuality/> */}
-        <RegisterForm/>
+        {/* <RegisterForm/> */}
+        {/* <Numbers/> */}
+        <Movies/>
     </div>
   );
 }
