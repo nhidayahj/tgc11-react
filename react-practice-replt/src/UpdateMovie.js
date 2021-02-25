@@ -1,4 +1,5 @@
 import React from 'react'
+import './updateMovie.css'
 
 
 export default class UpdateMovie extends React.Component {
@@ -16,25 +17,39 @@ export default class UpdateMovie extends React.Component {
             }
         ],
         title: "",
-        director: ""
+        director: "",
+        editing: false,
     }
     updateMovie = () => {
         // 1. create the updated movie object.
         // hint: replace the null below with the correct code
         // hint 2: where is the data for the new movie currently stored?
         let updatedMovie = {
-            title: this.state.title,
-            director: this.state.director
+            title: this.state.editMovieTitle,
+            director: this.state.editDirector,
+            movieId: this.state.movieId
+                     
         }
 
         // 2. find the original index of the updated movie
-
+        
         // 3. clone the array
+        let clonedArr = [...this.state.movies]
+        // 4. add the updated movie object back to its original index in the array 
+        let index = -1;
+        for (let i=0; i<this.state.movies.length; i++) {
+            let currentMovie = this.state.movies[i]
+            if(currentMovie.id == updatedMovie.movieId) {
+                index = i;
+                break;
+            }
+        }
 
-        // 4. add the updated movie object back to its original index in
-        // the array
-
+        clonedArr[index] = updatedMovie
         // 5. set the cloned array back into the state
+        this.setState({
+            'movies':clonedArr
+        })
     }
 
     updateFormField = (e) => {
@@ -43,16 +58,21 @@ export default class UpdateMovie extends React.Component {
         })
     }
 
-    // create a pop-up form
-    beginEditMovie = () => {
-        return (
-            <React.Fragment>
-                <div id="popup"
-                style={{display: this.state.beginEditMovie ? 'block' : 'none'}}>
+    beginEditMovie = (movie) => {
+        this.setState({
+            'editing': true,
+            'editMovieTitle':movie.title,
+            'editDirector':movie.director,
+            'movieId':movie.id
+        })
+    }
 
-                </div>
-            </React.Fragment>
-        )
+    showEditMovieForm() {
+        if (this.state.editing == true) {
+            return 'block'
+        } else {
+            return 'none';
+        }
 
     }
 
@@ -62,24 +82,24 @@ export default class UpdateMovie extends React.Component {
                 <div class="col">
                     {this.state.movies.map(m => (
                         <React.Fragment>
-                            <div class="movie">
-                                <h1>{m.title} <button onClick={this.beginEditMovie}>Edit</button></h1>
+                            <div class="movie" key={m.id}>
+                                <h1>{m.title} <button onClick={() => this.beginEditMovie(m)}>Edit</button></h1>
                                 <h2>Directed by {m.director}</h2>
                             </div>
                         </React.Fragment>
                     ))}
                 </div>
 
-                <div class="col">
+                <div class="col" style={{display: this.showEditMovieForm()}}>
 
                     <h3>Edit Movie</h3>
                     <div>
                         <label>Movie Title:</label>
-                        <input type="text" name="title" value={this.state.title} onChange={this.updateFormField} />
+                        <input type="text" name="editMovieTitle" value={this.state.editMovieTitle} onChange={this.updateFormField} />
                     </div>
                     <div>
                         <label>Director</label>
-                        <input type="text" name="director" value={this.state.director} onChange={this.updateFormField} />
+                        <input type="text" name="editDirector" value={this.state.editDirector} onChange={this.updateFormField} />
                     </div>
                     <button onClick={this.updateMovie}>Update Movie</button>
                 </div>
