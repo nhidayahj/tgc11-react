@@ -1,15 +1,11 @@
-// import RegisterForm from './RegisterForm'
-// import Numbers from './Numbers'
-// import Movies from './Movies'
-import RemoveNum from './RemoveNum'
+// import UpdateMovie from './UpdateMovie'
+import Library from './Library'
 
 function App() {
   return (
     <div className="App">
-        {/* <RegisterForm/> */}
-        {/* <Numbers/> */}
-        {/* <Movies/> */}
-        <RemoveNum/>
+        {/* <UpdateMovie/> */}
+        <Library/>
     </div>
   );
 }
