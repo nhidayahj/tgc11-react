@@ -27,12 +27,23 @@ export default class Library extends React.Component {
     }
     
     // this will update ALL the details of the book
-    addBook = (e) => {
-        let newBookTags =[];
-         this.setState({
-             [e.target.name]:e.target.value
-         })
+    addBook = () => {
+        
     }
+
+    editTitle = (e) =>{
+        this.setState({
+            'title':e.target.value
+        })
+    }
+
+     editAuthor = (e) =>{
+        this.setState({
+            'author':e.target.value
+        })
+    }
+
+    
 
     updateBook = () => {
 
@@ -82,11 +93,11 @@ export default class Library extends React.Component {
                     <h3>Add Book</h3>
                     <div>
                         <label>Title:</label>
-                        <input type="text" name="title" value={this.state.title}/>
+                        <input type="text" name="title" value={this.state.title} onChange={this.editTitle}/>
                     </div>
                     <div>
                         <label>Author</label>
-                        <input type="text" name="author" value={this.state.author}/>
+                        <input type="text" name="author" value={this.state.author} onChange={this.editAuthor}/>
                     </div>
                     <div>
                         <label>Genre</label>
