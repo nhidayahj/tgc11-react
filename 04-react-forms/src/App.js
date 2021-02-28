@@ -4,7 +4,7 @@ import './App.css';
 // import AddTwo from './AddTwo'
 // import CalcBMI from './CalcBMI'
 // import CalcGST from './CalcGST'
-// import UserForm from './UserForm'
+import UserForm from './UserForm'
 import SurveyForms from './SurveyForms'
 
 
@@ -16,7 +16,11 @@ function App() {
       {/* <CalcBMI/> */}
       {/* <CalcGST/> */}
       <SurveyForms/>
-      {/* <UserForm/> */}
+      <div>
+          <h2>User Forms: </h2>
+          <UserForm/>
+      </div>
+      
     </div>
   );
 }
