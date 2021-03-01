@@ -86,7 +86,7 @@ export default class TaskList extends React.Component {
             if (item.id === id) {
                 this.setState({
                     'editedTaskTitle': item.description,
-                    // create an if variable to able to reference later 
+                    // create an id variable to able to reference later 
                     'selectedId': id
                 })
             }
@@ -114,7 +114,8 @@ export default class TaskList extends React.Component {
             id: this.state.selectedId,
             done: false
         }
-
+        
+        // clone the original task array
         let clonedAllTask = [...this.state.tasks]
         let index;
 
@@ -126,8 +127,11 @@ export default class TaskList extends React.Component {
                 break
             }
         }
-        // set the 
+        // set the slected task based on its id to be the new task object
+        // created above
         clonedAllTask[index] = newTask
+
+        // set the state variable to the updated task array
         this.setState({
             tasks:clonedAllTask
         })
