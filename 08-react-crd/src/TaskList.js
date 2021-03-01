@@ -22,7 +22,6 @@ export default class TaskList extends React.Component {
         showAddForm: false,
         newTaskDesc: "",
         showEditForm: false,
-        selectedTask: [],
         editedTaskTitle: ''
     }
 
@@ -39,6 +38,7 @@ export default class TaskList extends React.Component {
                             checked={task.done}
                             onChange={()=>this.checkTask(task)} />
                         <button value={task.id} onClick={() => this.displayEditForm(task.id)}>Edit</button>
+                        <button value={task.id} onClick={() => this.deleteTask(task)}>Delete</button>
                     </li>
                 </div>
             )
@@ -161,6 +161,23 @@ export default class TaskList extends React.Component {
 
 
 
+    // Delete a task
+    deleteTask = task => {
+        // find the index to which the 'Delete' button is selected 
+        // by identifying its id
+        let index = this.state.tasks.findIndex( (t) => t.id === task.id)
+        // cloned the array using the slice method
+        let clonedArr = [
+            ...this.state.tasks.slice(0,index),
+            ...this.state.tasks.slice(index+1)
+        ];
+
+        // 4. set the cloned array back into state 
+        this.setState({
+            tasks:clonedArr
+        })
+    }
+
 
 
     render() {
@@ -173,7 +190,7 @@ export default class TaskList extends React.Component {
             </div>
             {/* Display either 'add/edit' buttons */}
             <div>
-                <button onClick={this.displayAddForm}>Add</button>
+                <button onClick={this.displayAddForm}>Add New Task</button>
 
             </div>
             {/* display 'add' form */}
@@ -182,7 +199,7 @@ export default class TaskList extends React.Component {
                 <label>New task: </label>
                 <input type="text" value={this.state.newTaskDesc}
                     onChange={this.addNewTask} />
-                <button onClick={this.addTaskToList}>Add</button>
+                <button onClick={this.addTaskToList}>Add Task</button>
             </div>
             {/* Display 'edit' form */}
             <div style={{ display: this.state.showEditForm === true ? 'block' : 'none' }}>
