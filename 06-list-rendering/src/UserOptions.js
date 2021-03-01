@@ -90,14 +90,20 @@ export default class UserOptions extends React.Component {
         if (selectFruits.includes(e.target.value) === false) {
             cloneFruits = [...selectFruits];
             cloneFruits.push(e.target.value)
+
+            this.setState({
+                fruits: cloneFruits
+            })
         } else {
             cloneFruits = selectFruits.filter((f) => {
                 return f !== e.target.value
             })
+
+            this.setState({
+                fruits: cloneFruits
+            })
         }
-        this.setState({
-            fruits: cloneFruits
-        })
+
 
     }
 

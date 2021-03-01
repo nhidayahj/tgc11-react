@@ -46,9 +46,32 @@ export default class DisplayAxios extends React.Component {
     }
 
     // render the fruits list 
-   updateFruitCheckbox = (e) => {
-       
-   }
+    updateFruitCheckbox = (e) => {
+        console.log("Fruits")
+        let selectFruits = this.state.fruits;
+        let cloneFruits;
+        if (selectFruits.includes(e.target.value) === false) {
+            // item not in fruits array, 
+            // clone the array, then push the new fruit item
+            let cloneFruits = [...selectFruits]
+            cloneFruits.push(e.target.value)
+
+            this.setState({
+                fruits: cloneFruits
+            })
+        } else {
+            cloneFruits = selectFruits.filter((fruit) => {
+                return fruit !== e.target.value
+            })
+
+            this.setState({
+                fruits: cloneFruits
+            })
+        }
+
+
+
+    }
 
     // render country list
     renderCountryList() {
@@ -96,12 +119,10 @@ export default class DisplayAxios extends React.Component {
                 <div>
                     <p>
                         <label>Fruits List: </label>
-                        
                         {this.state.all_fruits.map((f) => (
-                            <React.Fragment>
-                                
-                                <input type="checkbox" name="fruits" value={this.state.fruits}
-                                    checked={this.state.fruits === f.value} onChange={this.updateFruitCheckbox} />
+                            <React.Fragment key={f.value}>
+                                <input type="checkbox" name="fruits" value={f.value}
+                                    checked={this.state.fruits.includes(f.value)} onChange={this.updateFruitCheckbox} />
                                 <span>{f.display}</span>
                             </React.Fragment>
 
