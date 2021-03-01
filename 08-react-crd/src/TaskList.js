@@ -37,7 +37,7 @@ export default class TaskList extends React.Component {
                         <input type="checkbox"
                             value={task.description}
                             checked={task.done}
-                            onChange={this.selectTask} />
+                            onChange={()=>this.checkTask(task)} />
                         <button value={task.id} onClick={() => this.displayEditForm(task.id)}>Edit</button>
                     </li>
                 </div>
@@ -86,10 +86,12 @@ export default class TaskList extends React.Component {
             if (item.id === id) {
                 this.setState({
                     'editedTaskTitle': item.description,
+                    // create an if variable to able to reference later 
                     'selectedId': id
                 })
             }
         }
+        // below sets the display flags
         this.setState({
             'showAddForm': false,
             'showEditForm': true
@@ -106,6 +108,7 @@ export default class TaskList extends React.Component {
     // edit button from form field
     addNewEditedTask = () => {
         // create new edited task object 
+        // to be edited into the cloned array 
         let newTask = {
             description: this.state.editedTaskTitle,
             id: this.state.selectedId,
@@ -128,8 +131,37 @@ export default class TaskList extends React.Component {
         this.setState({
             tasks:clonedAllTask
         })
-
     }
+
+
+    // create interactivity to the checkboxes
+    // allowing users to mark as done or not 
+    checkTask = (task) => {
+        
+        // 1. clone the array & change the value of the 'done' property
+        let clonedTask = {...task, done: !task.done};
+        
+        // 2. use MAP function to create new cloned array 
+        let clonedArray = this.state.tasks.map((eachTask) => {
+            if (eachTask.id !== clonedTask.id) {
+                console.log("Non-Selected task: ",eachTask)
+                return eachTask;
+            } else {
+                console.log("Selected task: ", eachTask)
+                return clonedTask;
+            }
+        })
+        console.log("Final cloned array: ",clonedArray)
+        this.setState({
+            tasks:clonedArray
+        })
+
+       
+    }
+
+
+
+
 
     render() {
         return <React.Fragment>
