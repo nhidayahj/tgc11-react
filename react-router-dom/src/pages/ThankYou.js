@@ -1,8 +1,11 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
+
+
 export default function ThankYou() {
 
     const location = useLocation();
+    // retrieving the state variable data
     const email = location.state.formData.email;
     const comments = location.state.formData.comments;
 

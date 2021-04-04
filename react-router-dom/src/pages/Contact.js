@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
 export default function ContactUs() {
-    // replicate state using React hooks
+    // replicate state using React hooks by using {useState}
   // first argument is the default value of the state variable
     const [formData, setFormData] = useState({
-        'email': ' ',
-        'comments': ' '
+        'email': '',
+        'comments': ''
     })
 
     // create a History function by using useHistory
+    // this can then pass information to another component 
+    // in this case, the ThankYou component
     const history = useHistory()
-
 
     const submitForm = () => {
         history.push('/thank-you', {
