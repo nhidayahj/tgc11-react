@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 
 export default function ContactUs() {
-    // const [email, setEmail] = useState(' ') 
-    // use this representation instead
+    // replicate state using React hooks
+  // first argument is the default value of the state variable
     const [formData, setFormData] = useState({
         'email': ' ',
         'comments': ' '

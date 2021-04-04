@@ -1,7 +1,7 @@
-import React from 'react-router-dom'
-// import react router stuff
+import React from 'react'
+// import react router DOM stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -13,17 +13,17 @@ function App() {
         <Router>
             <nav className="navbar navbar-expand-sm bg-light">
                 <ul className="navbar-nav">
-                    <li className="nav-item ml-3">
-                        <Link to="/">Home</Link>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/">Home</Link>
                     </li>
-                    <li className="nav-item ml-3">
-                        <Link to="/about">About</Link>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/about">About</Link>
                     </li>
-                    <li className="nav-item ml-3">
-                        <Link to="/contact">Contact Us</Link>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/contact">Contact Us</Link>
                     </li>
-                    <li className="nav-item ml-3">
-                        <Link to="/posts">Posts</Link>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/posts">Posts</Link>
                     </li>
                 </ul>
             </nav>
