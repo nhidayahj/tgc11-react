@@ -44,7 +44,7 @@
 ***This method eliminates the steps to re-build the application if there is a need to make changes to our React code.***
 
 To achieve the above screenshot from method 1 (folders layout),
-1. First ***delete node_modules*** first (from inside 'misty' folder)
+1. First ***delete node_modules*** first (from inside 'misty' folder) (Or delete 'build' folder if there is - from the Method 1 example)
 2. In ***/public folder***, ensure that is a ***_redirects*** file with
 ``` /* /index.html 200``` included 
 3. Move all the other files to the root (in this case, out from 'misty' folder)
@@ -65,8 +65,8 @@ To achieve the above screenshot from method 1 (folders layout),
 12. Finally click on ***Deploy***
 13. Wait for Netlify to complete its Link 
 
-Now, if any changes needs to be made in React, just normally push to GitHub, and Netlify will automatically be in-sync (since the link is directly connected to the 
-repository)
+***Now, if any changes needs to be made in React, just normally push to GitHub, and Netlify will automatically be in-sync (since the link is directly connected to the 
+repository)***
 
 *For Project 3 Reference*
 
