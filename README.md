@@ -1,6 +1,6 @@
 # tgc11-react
 
-# Deployment of React to Netlify 
+# Deployment of React to Netlify (Method 1)
 ***If *package.json* is NOT in Root directory*** (Shown below)
 
 ![deploy-img](https://user-images.githubusercontent.com/60766668/116186724-c93a4f80-a756-11eb-8e08-6427c10f411f.PNG)
@@ -35,3 +35,39 @@
 ```npm run build```
 
 ***Ntoe: If Express has been deployed to Heroku, ensure that your React app has the link(locating from your Dev(eg. Gitpod) changed to your new Heroku link***
+
+
+## Deployment of React to Netlify (Method 2)
+
+![deploy-img-netlify](https://user-images.githubusercontent.com/60766668/116218229-e7b34180-a77c-11eb-9a0e-2f867b73c42c.PNG)
+
+This method eliminates the steps to re-build the application if there is a need to make changes to our React code.
+
+To achieve the above screenshot from method 1 (folders layout),
+1. First delete *node_modules* first (from inside 'misty' folder)
+2. In */public folder*, ensure that is a *_redirects* file with
+``` /* /index.html 200``` included 
+3. Move all the other files to the root (in this case, out from 'misty' folder)
+4. Then, delete the now empty 'misty' folder 
+5. In terminal, type ```yarn```
+- this will create another node_modules (but will not pushed to GitHub, since in .gitignore, there is already a *node_module* folder included) 
+6. Now test if React application still works by typing ```yarn start``` in terminal
+7. ***Note:*** If all works fine, commit chnages and push to GitHub (make sure there no *node_modules files* in the git source control, just double-check git contents before pushing) when pushing to GitHub
+
+***In your Netlify Account***
+
+7. In Netlify, create a new project 
+8. Click on ***New Site from Git***
+9. Locate your project React repository in GitHub 
+10. You will be prompted with the *build* settings 
+11. Modify the *build* commands to ***CI= yarn run build*** 
+- this is to bypass any warnings that you may have in your React code
+12. Finally click on ***Deploy***
+13. Wait for Netlify to complete its Link 
+
+Now, if any changes needs to be made in React, just normally push to GitHub, and Netlify will automatically be in-sync (since the link is directly connected to the 
+repository)
+
+*For Project 3 Reference*
+
+Once completed, ensure that in Heroku's Config Var, the success_url for Stripe to redirect to after completed payment has been replaced with the new Netlify link
