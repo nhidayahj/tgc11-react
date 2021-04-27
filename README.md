@@ -41,11 +41,11 @@
 
 ![deploy-img-netlify](https://user-images.githubusercontent.com/60766668/116218229-e7b34180-a77c-11eb-9a0e-2f867b73c42c.PNG)
 
-This method eliminates the steps to re-build the application if there is a need to make changes to our React code.
+***This method eliminates the steps to re-build the application if there is a need to make changes to our React code.***
 
 To achieve the above screenshot from method 1 (folders layout),
-1. First delete *node_modules* first (from inside 'misty' folder)
-2. In */public folder*, ensure that is a *_redirects* file with
+1. First ***delete node_modules*** first (from inside 'misty' folder)
+2. In ***/public folder***, ensure that is a ***_redirects*** file with
 ``` /* /index.html 200``` included 
 3. Move all the other files to the root (in this case, out from 'misty' folder)
 4. Then, delete the now empty 'misty' folder 
@@ -60,8 +60,8 @@ To achieve the above screenshot from method 1 (folders layout),
 8. Click on ***New Site from Git***
 9. Locate your project React repository in GitHub 
 10. You will be prompted with the *build* settings 
-11. Modify the *build* commands to ***CI= yarn run build*** 
-- this is to bypass any warnings that you may have in your React code
+11. Under the ***build commands*** change it to ***CI= yarn run build*** (Capital 'C' and 'I, and space after '=' sign)
+- this is to bypass any warnings that you may have in your React code (Since React prefers that all warning is dealt with before deployment)
 12. Finally click on ***Deploy***
 13. Wait for Netlify to complete its Link 
 
