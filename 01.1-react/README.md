@@ -44,5 +44,12 @@ In this file:
     - ***REMEMBER*** to export the function 
     - either inline with the function name `export default <function_name>`
     or at the bottom of the function (see AlertBox and MultiplyNum)
-    - Then ***import*** the component in the App.js file
+    - Exporting a function is also to allow other JS file to use it 
+    - Then ***import*** the component in the App.js / or in whatever JS file
     - Naming of components to be same as the File name (for easier refernce & debugging)
+- Class-based Components with States
+    - Stateful components is a component with its own private variables
+    - use ***props*** when we want a component to receive data from the outside itself
+    - use ***states*** to store data that only the component has access to 
+- Event Handling 
+    - 

@@ -5,6 +5,7 @@ import './styles.css';
 import AlertBox from './AlertBox';
 import MultiplyNum from './MultiplyNum';
 import NumberBox from './NumberBox';
+import RandomImage from './RandomImage'
 import React from 'react'
 
 // a Functional Component (opposite is the Class Component)
@@ -20,6 +21,7 @@ function displayHeader(name) {
     )
 }
 
+// a component is like a JS template
 function saysGoodbye() {
     return "Goodbye World"
 }
@@ -67,6 +69,8 @@ function App() {
                 <MultiplyNum bg_color="black" text_color="white" mul_one={2} mul_two={6}/>
                 <h1>Number Box</h1>
                 <NumberBox initialValue={30}/>
+                <h1>Random Image</h1>
+                <RandomImage/>
             </div>
         </React.Fragment>
     );
